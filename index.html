@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<title>Tombol Lucu 💗</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💗</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Pacifico&family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--pink:#ff77a9;--pink-d:#e7548f;--ink:#4a2b45;--soft:#8a6f85;--card:#ffffffee;--line:#ffd9ea;--shadow:0 18px 40px -18px rgba(214,88,145,.55)}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{margin:0;font-family:'Fredoka','Nunito','Quicksand',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;color:var(--ink);overflow:hidden;
+  background:radial-gradient(900px 600px at 5% -5%,#ffd9ec,transparent 60%),radial-gradient(800px 560px at 100% 10%,#dfe8ff,transparent 58%),linear-gradient(160deg,#fff0f6,#ffe4ef 45%,#efe4ff) fixed}
+.blob{position:fixed;opacity:.45;pointer-events:none;animation:float 9s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-6deg)}50%{transform:translateY(-20px) rotate(8deg)}}
+.top{position:fixed;top:0;left:0;right:0;z-index:6;display:flex;align-items:center;gap:10px;padding:calc(12px + env(safe-area-inset-top,0px)) 14px 10px}
+.bar{flex:1;height:10px;background:#fff;border:2px solid var(--line);border-radius:99px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#ff77a9,#ffb86b,#9b6dff,#5ec8ff,#ff77a9);background-size:300% 100%;animation:flow 3s linear infinite;border-radius:99px;transition:width .4s}
+@keyframes flow{from{background-position:0 0}to{background-position:-300% 0}}
+.cnt{font-weight:900;font-size:13px;color:var(--pink-d);min-width:38px;text-align:right}
+#app{height:100dvh;display:flex;align-items:center;justify-content:center;padding:70px 16px 24px;position:relative;z-index:2;text-align:center}
+.wrap{width:min(520px,100%)}
+.who{display:none;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:12px}
+.who span{background:var(--card);border:2px solid #fff;border-radius:999px;padding:6px 13px;font-size:13px;font-weight:700;color:var(--pink-d);box-shadow:0 8px 16px -10px rgba(214,88,145,.7)}
+.fld{width:100%;margin-top:14px;font-size:17px;font-weight:700;text-align:center;padding:13px 14px;border-radius:14px}
+.card{width:100%;background:var(--card);border:3px solid #fff;border-radius:30px;padding:38px 20px 36px;box-shadow:var(--shadow);backdrop-filter:blur(8px)}
+.meta{font-size:11px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;color:var(--pink-d);margin-bottom:8px}
+.title{font-size:clamp(20px,5.6vw,28px);font-weight:900;line-height:1.3;margin:2px 0 6px}
+.sub{font-size:13px;color:var(--soft);font-weight:700;margin-bottom:6px}
+.btn{border:none;cursor:pointer;font-family:inherit;font-weight:900;font-size:clamp(14px,3.9vw,17px);padding:14px 20px;border-radius:14px;color:#a8336a;
+  background:linear-gradient(160deg,#ffe6f1,#ffc9e0);box-shadow:0 6px 0 -1px #f2a6c8,0 12px 20px -12px rgba(214,88,145,.8);transition:transform .12s,box-shadow .12s}
+.btn:active{transform:translateY(4px);box-shadow:0 2px 0 -1px #f2a6c8}
+.btn.ghost{background:#fff;color:var(--pink-d);border:2px solid var(--line);box-shadow:0 5px 0 -1px #ffd0e4}
+.btn.sm{font-size:13px;padding:10px 16px}
+.opt{min-height:68px;font-size:13px;padding:8px 6px;line-height:1.2;word-break:break-word}
+.arena{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}
+.arena .opt{width:100%}
+.opts{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+.list{text-align:left;background:#fff8fc;border:2px dashed var(--line);border-radius:18px;padding:10px 14px;margin:12px 0;font-size:13.5px;font-weight:700}
+.list li{margin:4px 0}
+.fx{position:fixed;inset:0;pointer-events:none;z-index:20;overflow:hidden}
+.conf{position:absolute;top:-12px;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(112vh) rotate(720deg)}}
+.pop{position:absolute;animation:popup .95s ease-out forwards}
+@keyframes popup{0%{transform:translate(-50%,-50%) scale(.4);opacity:0}25%{transform:translate(-50%,-70%) scale(1.15);opacity:1}100%{transform:translate(-50%,-160%) scale(.9);opacity:0}}
+/* notifikasi gaya HP */
+.note{position:fixed;left:50%;top:calc(10px + env(safe-area-inset-top,0px));width:min(440px,calc(100% - 20px));z-index:50;display:flex;gap:11px;align-items:center;
+  text-align:left;background:rgba(255,255,255,.94);backdrop-filter:blur(14px);border-radius:22px;padding:11px 14px;box-shadow:0 14px 34px -10px rgba(74,43,69,.5);
+  border-left:6px solid var(--pink);transform:translate(-50%,-160%);transition:transform .38s cubic-bezier(.2,.9,.3,1.3);pointer-events:none}
+.note.on{transform:translate(-50%,0)}
+.note.good{border-color:#2fc98d}.note.bad{border-color:#ff5f6d}.note.fun{border-color:#ffa52e}
+.note .e{font-size:28px}.note b{display:block;font-size:14px}.note span{font-size:13px;color:var(--soft);font-weight:700}
+.enter{animation:enter .38s cubic-bezier(.2,.9,.3,1.25)}
+@keyframes enter{from{opacity:0;transform:translateY(18px) scale(.96)}to{opacity:1;transform:none}}
+input{width:100%;font-family:inherit;font-size:13.5px;font-weight:700;color:var(--ink);border:2px solid var(--line);border-radius:14px;padding:8px 11px;background:#fffafc;outline:none}
+input:focus{border-color:var(--pink)}
+/* pengumuman */
+.ann{position:fixed;inset:0;z-index:60;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(74,43,69,.45);backdrop-filter:blur(6px);opacity:0;pointer-events:none;transition:opacity .3s}
+.ann.on{opacity:1;pointer-events:auto}
+.annc{position:relative;width:min(400px,100%);max-height:86dvh;overflow:auto;text-align:center;background:linear-gradient(160deg,#fff,#fff0f7 60%,#f3eaff);border:4px solid #fff;border-radius:30px;padding:30px 22px 24px;box-shadow:0 24px 60px -16px rgba(214,88,145,.7);transform:scale(.85) translateY(20px);transition:transform .4s cubic-bezier(.2,.9,.3,1.3)}
+.ann.on .annc{transform:none}
+.annbadge{font-size:36px;animation:float 5s ease-in-out infinite}
+.annt{font-family:'Pacifico','Fredoka',cursive;font-size:clamp(21px,6.4vw,27px);color:var(--pink-d);line-height:1.35;margin:4px 0 12px}
+.annd{font-family:'Quicksand','Fredoka',sans-serif;font-size:16.5px;font-weight:700;line-height:1.6;color:var(--ink);white-space:pre-wrap;word-break:break-word;margin-bottom:20px}
+#annok{width:100%}
+</style>
+</head>
+<body>
+<div class="blob" style="top:8%;left:5%;font-size:40px">💗</div>
+<div class="blob" style="top:20%;right:6%;font-size:32px;animation-delay:1.4s">🎀</div>
+<div class="blob" style="bottom:9%;left:8%;font-size:36px;animation-delay:2.6s">🌸</div>
+<div class="blob" style="bottom:15%;right:9%;font-size:28px;animation-delay:.7s">✨</div>
+
+<div class="top"><div class="bar"><i id="prog"></i></div><div class="cnt" id="cnt"></div></div>
+<div id="app"><div class="wrap"><div class="who" id="who"></div><div class="card" id="card"></div></div></div>
+<div class="fx" id="fx"></div>
+<div class="note" id="note"><div class="e" id="ne"></div><div><b id="nt"></b><span id="nm"></span></div></div>
+
+<div class="ann" id="ann"><div class="annc"><div class="annbadge">💌</div><div class="annt" id="annt"></div><div class="annd" id="annd"></div><button class="btn" id="annok">iyaaa sayangg 💗</button></div></div>
+<audio id="bgm" src="nadif.mp3" loop autoplay preload="auto" playsinline></audio>
+
+<script>
+const DEFAULTS={
+  q:[
+    {t:"Kamu kangen aku nggak hari ini? 🥺", a:["Biasa aja","Kangen banget 🥺","Siapa ya?"], c:1, ok:"Tuh kan, ketahuan 😌💗", no:"Hah?! Serius nih?! 😳"},
+    {t:"Kalau ada yang deketin kamu, kamu bakal…", a:["Cuekin, cuma kamu 🫶","Siapa tau jodoh 🙃","Kenalan dulu"], c:0, ok:"Pinter! Itu baru pacarku 💗", no:"JODOH APA?! 😤"},
+    {t:"Kalau aku tiba-tiba ngambek tanpa sebab…", a:["Tinggal tidur","Cuekin aja","Peluk sampai luluh 🫂"], c:2, ok:"Aaaa meleleh 🥺💗", no:"Tega banget sih 😭"},
+    {t:"Aku paling suka diperhatiin lewat apa?", a:["Transfer 💸","Chat duluan 🫶","Kasih kode"], c:1, ok:"Bener! Kamu hafal aku 🥹", no:"Ternyata sayangnya ada harganya 🤑"},
+    {t:"Siapa yang paling sering telat bales chat?", a:["Kamu sih 🙄","Sinyalnya","Aku, maaf ya 😅"], c:2, ok:"Diakuin juga akhirnya wkwk 😆", no:"Aku lagi sibuk tau 😤"},
+    {t:"Kalau kita berantem, siapa yang minta maaf duluan?", a:["Yang salah 🫡","Kamu aja","Siapa cepat"], c:0, ok:"Adil! Tapi biasanya aku yang ngalah 😌", no:"Enak aja! 😤"},
+    {t:"Kalau aku lagi bawel banget, kamu bakal…", a:["Matiin telpon 📵","Sabar dengerin 🥰","Pura-pura tidur"], c:1, ok:"Aaaa aku beruntung banget 🥺", no:"Berani banget kamu 😤"},
+    {t:"Deal nggak: kalau salah satu sedih, yang lain WAJIB angkat telpon?", a:["Ribet ah 🙄","Nanti aja","Deal 🤝"], c:2, ok:"Deal ✨ Nggak bisa dibatalin ya 😌", no:"Ckckck, hatimu kok gitu 😔"},
+    {t:"Terakhir: kamu mau nemenin aku terus? 🥺", a:["Mau banget 💗","Nggak 😤","Mikir dulu"], c:0, ok:"Aaaa aku senang banget 🥹💗", no:"Coba lagi, jawabannya jelas kok 🥺"}
+  ],
+  wa:"6287892412411",
+  nb:{e:"",t:"Jawaban benar",m:"Poin cinta bertambah"},
+  ns:{e:"",t:"Jawaban salah",m:"Coba lebih teliti ya"}
+};
+const SITE_ID="utama";   // id dokumen di Firestore (sites/utama). Harus sama dengan love.html
+const CDN="https://www.gstatic.com/firebasejs/13.1.0";
+const FB={apiKey:"AIzaSyAnZdntSgGrfe-zw9zJkyGlWD81x15PHXU",authDomain:"loveweb-786ec.firebaseapp.com",projectId:"loveweb-786ec",storageBucket:"loveweb-786ec.firebasestorage.app",messagingSenderId:"562412540068",appId:"1:562412540068:web:00a19e13c2802811f8d631",measurementId:"G-BVTCQ4G9NX"};
+const CK="tombol-lucu-cache-"+SITE_ID;     // cache isi quest (soal, jawaban, wa)
+const SK="tombol-lucu-state-"+SITE_ID;     // progres pemain (supaya refresh tidak balik ke awal)
+const clone=o=>JSON.parse(JSON.stringify(o));
+const valid=d=>d&&Array.isArray(d.q)&&d.q.length>=1&&d.q.every(x=>x&&Array.isArray(x.a)&&x.a.length>0);
+const merge=d=>{   // n = jumlah soal yang muncul (1–10); data lama tanpa n dianggap semua soal
+  const c={...clone(DEFAULTS),...clone(d),nb:{...DEFAULTS.nb,...d.nb},ns:{...DEFAULTS.ns,...d.ns}};
+  c.q=c.q.slice(0,10);const w=Math.floor(+d.n);
+  c.n=Math.max(1,Math.min(c.q.length,w>=1?w:c.q.length));return c};
+const N=()=>CFG.n||Math.min(CFG.q.length,10);
+const ls={get(k){try{return localStorage.getItem(k)}catch(e){return null}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+const $=id=>document.getElementById(id), card=$("card"), fx=$("fx");
+const esc=s=>String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+let sid="", log=[], waClicked=false;
+let CFG=merge(DEFAULTS), idx=0, done=false, pilih=[], ph="intro", introN=0, started=false, lastSig="", src="default";
+const ID={nama:"",pasangan:"",umur:""};
+const WA=()=>{let n=String(CFG.wa||"").replace(/\D/g,"");return n.startsWith("0")?"62"+n.slice(1):n};
+
+/* ===== simpan & pulihkan progres (refresh tidak reset) ===== */
+function saveState(){ls.set(SK,JSON.stringify({ph,n:introN,idx,done,pilih:Array.from(pilih,p=>p||null),ID,sid,log,wa:waClicked}))}
+function loadState(){
+  try{
+    const s=JSON.parse(ls.get(SK));if(!s||typeof s!=="object")return null;
+    sid=typeof s.sid==="string"?s.sid:"";log=Array.isArray(s.log)?s.log.slice(-80):[];waClicked=!!s.wa;
+    if(s.ID)for(const k in ID)ID[k]=String(s.ID[k]==null?"":s.ID[k]);
+    pilih=Array.isArray(s.pilih)?s.pilih.slice(0,10).map(p=>p&&Number.isInteger(p.k)?{k:p.k,q:String(p.q||""),a:String(p.a||""),ok:!!p.ok,bn:String(p.bn||"")}:undefined):[];
+    return s;
+  }catch(e){return null}
+}
+function restore(){
+  const s=loadState(), idOk=ID.nama&&ID.pasangan&&ID.umur;
+  if(!sid)sid=newSid();
+  if(s&&idOk&&s.ph==="end"){showWho();end(true);return}
+  if(s&&idOk&&s.ph==="quest"&&Number.isInteger(s.idx)&&s.idx>=0){
+    if(s.idx>=N()){showWho();end(true);return}
+    idx=s.idx;showWho();
+    if(s.done&&pilih[idx]){done=true;progress();hasil(false)}else ask(true);
+    return;
+  }
+  intro(s&&s.ph==="intro"&&Number.isInteger(s.n)&&s.n>=0&&s.n<3?s.n:0);
+}
+
+/* ===== pantau: kirim apa yang dia isi & klik ke Firebase (koleksi "pantau") ===== */
+const newSid=()=>Date.now().toString(36)+Math.random().toString(36).slice(2,8);
+const POS=["kiri","tengah","kanan"];
+let syncT;
+function payload(){
+  const n=N(),jawab=[];let b=0,x=0;
+  for(let i=0;i<n;i++){const p=pilih[i];if(p&&Number.isInteger(p.k)){p.ok?b++:x++;jawab.push({i:i+1,k:p.k,q:p.q||"",a:p.a||"",ok:!!p.ok,bn:p.bn||""})}}
+  return {sid,nama:ID.nama,pasangan:ID.pasangan,umur:ID.umur,ph,idx:Math.min(idx,n),n,introN,benar:b,salah:x,wa:waClicked,jawab,log:log.slice(-60),updated:Date.now()};
+}
+function syncPantau(){
+  clearTimeout(syncT);
+  syncT=setTimeout(async()=>{
+    if(!sid)return;
+    try{const {m,db}=await getDb();await m.setDoc(m.doc(db,"pantau",sid),payload())}
+    catch(e){console.warn("[tombol-lucu] pantau gagal",e.code||e.message)}
+  },350);
+}
+function track(e,d){
+  if(!sid)sid=newSid();
+  log.push({t:Date.now(),e,d:String(d||"").slice(0,140)});if(log.length>80)log.shift();
+  saveState();syncPantau();
+}
+
+/* ===== data live dari Firebase ===== */
+let dbP;const getFbApp=(()=>{let p;return()=>p||(p=import(CDN+"/firebase-app.js").then(m=>m.initializeApp(FB)))})();
+const getDb=()=>dbP||(dbP=Promise.all([getFbApp(),import(CDN+"/firebase-firestore.js")]).then(([app,m])=>({m,db:m.initializeFirestore(app,{experimentalForceLongPolling:true})})));
+function dbg(){
+  console.log("[tombol-lucu] sumber data:",src);
+  if(!/[?&]debug/.test(location.search))return;
+  let x=$("dbg");if(!x){x=document.createElement("div");x.id="dbg";x.style.cssText="position:fixed;bottom:6px;left:6px;right:6px;z-index:99;font:12px monospace;background:#fff;padding:6px 8px;border-radius:8px;color:#333";document.body.appendChild(x)}
+  x.textContent="data: "+src+" | "+new Date().toLocaleTimeString();
+}
+function applyRemote(d,from){
+  if(!valid(d))return;
+  const sig=JSON.stringify(d);if(sig===lastSig)return;
+  lastSig=sig;CFG=merge(d);src=from||"firebase";ls.set(CK,sig);dbg();refresh();
+}
+function refresh(){   // tampilkan perubahan langsung di layar tanpa menggeser posisi pemain
+  if(!started)return;
+  if(ph==="end"){progress();return}
+  if(ph!=="quest")return;
+  if(idx>=N()){end();return}   // jumlah soal dikurangi dan dia sudah lewat batas
+  progress();
+  if(done&&pilih[idx])hasil(false);else ask(true);
+}
+function kickoff(){if(started)return;started=true;restore();dbg()}
+async function listen(){
+  try{
+    const {m,db}=await getDb(), ref=m.doc(db,"sites",SITE_ID);
+    m.onSnapshot(ref,s=>{if(s.exists())applyRemote(s.data());kickoff()},e=>{console.warn("[tombol-lucu] snapshot error",e.code||e.message);kickoff()});
+    m.onSnapshot(m.doc(db,"sites","pengumuman"),s=>{ann=s.exists()?s.data():null;renderAnn()},e=>console.warn("[tombol-lucu] pengumuman",e.code||e.message));
+    document.addEventListener("visibilitychange",async()=>{   // balik ke tab/HP dibuka lagi → cek data terbaru
+      if(document.hidden)return;
+      try{const s=await m.getDocFromServer(ref);if(s.exists())applyRemote(s.data())}catch(e){}
+    });
+  }catch(e){console.warn("[tombol-lucu] firebase gagal",e.code||e.message);kickoff()}
+}
+
+/* ===== notifikasi ===== */
+let nT; function notify(e,t,m,tone){
+  const n=$("note"); $("ne").textContent=e||"";$("ne").style.display=e?"":"none"; $("nt").textContent=t; $("nm").textContent=m||"";
+  n.className="note "+(tone||""); void n.offsetWidth; n.classList.add("on");
+  clearTimeout(nT); nT=setTimeout(()=>n.classList.remove("on"),2200);
+}
+/* ===== efek ===== */
+function rain(n,cls,set,life){for(let i=0;i<n;i++){const s=document.createElement("span");s.className=cls;s.textContent=set[Math.floor(Math.random()*set.length)];
+  s.style.fontSize=(14+Math.random()*18)+"px";s.style.animationDelay=Math.random()*.5+"s";
+  if(cls==="conf"){s.style.left=Math.random()*100+"vw";s.style.animationDuration=1.6+Math.random()*2+"s"}else{s.style.left=15+Math.random()*70+"vw";s.style.top=40+Math.random()*40+"vh"}
+  fx.appendChild(s);setTimeout(()=>s.remove(),life)}}
+const confetti=n=>rain(n,"conf",["💗","✨","🎀","💖","🌸"],4200), hearts=n=>rain(n,"pop",["💗"],1700);
+
+function btn(l,c){const b=document.createElement("button");b.className="btn "+(c||"");b.textContent=l;return b}
+function head(meta,title,sub,quiet){card.innerHTML="";card.classList.remove("enter");if(!quiet){void card.offsetWidth;card.classList.add("enter")}
+  card.innerHTML='<div class="meta">'+meta+'</div><div class="title">'+title+'</div>'+(sub?'<div class="sub">'+sub+'</div>':"")}
+function barShow(v){document.querySelector('.bar').style.display=v?'':'none';$('cnt').style.display=v?'':'none'}
+function progress(){const n=N();barShow(true);$("prog").style.width=(Math.min(idx,n)/n*100)+"%";$("cnt").textContent=Math.min(idx+1,n)+"/"+n}
+
+/* ===== quest ===== */
+function ask(quiet){
+  done=false;ph="quest";saveState();progress();
+  const q=CFG.q[idx];
+  head("pertanyaan "+(idx+1),esc(q.t),null,quiet);
+  const ar=document.createElement("div");ar.className="arena";
+  q.a.forEach((lab,k)=>{const b=btn(lab,"opt");b.onclick=()=>jawab(k);ar.appendChild(b)});
+  card.appendChild(ar);
+}
+function jawab(k){
+  if(done)return;done=true;
+  const q=CFG.q[idx],ok=k===q.c;
+  pilih[idx]={k,q:q.t,a:q.a[k],ok,bn:q.a[q.c]};saveState();
+  track("jawab","Soal "+(idx+1)+" → tombol "+(POS[k]||k+1)+" “"+q.a[k]+"” "+(ok?"✔ benar":"✘ salah"));
+  hasil(true);
+}
+function hasil(fresh){   // fresh=true: baru dijawab (ada efek). false: hanya digambar ulang (refresh / data berubah)
+  const q=CFG.q[idx],p=pilih[idx]||{},bener=p.k===q.c;
+  if(bener){if(fresh){confetti(35);hearts(6);notify(CFG.nb.e,CFG.nb.t,CFG.nb.m,"good")}head("hasil",esc(q.ok),null,!fresh)}
+  else{if(fresh)notify(CFG.ns.e,CFG.ns.t,CFG.ns.m,"bad");head("oops",esc(q.no),"Yang bener: <b>"+esc(q.a[q.c])+"</b>",!fresh)}
+  const o=document.createElement("div");o.className="opts";
+  const last=idx>=N()-1;
+  const b=btn(last?"Lihat hasil 🎉":"Lanjut");
+  b.onclick=()=>{track("lanjut",last?"Lihat hasil":"Lanjut ke soal "+(idx+2));idx++;idx>=N()?end():ask()};
+  o.appendChild(b);card.appendChild(o);
+}
+function pesan(){
+  let b=0,s=0;
+  const body=CFG.q.slice(0,N()).map((q,i)=>{const p=pilih[i]||{};p.k===q.c?b++:s++;return (i+1)+". "+q.t+"\n   Jawab: "+(q.a[p.k]||"-")}).join("\n\n");
+  return "iniiiiiiiiiiiiiiiii hasilllnyaaaaa cayangggggggggggggg acuuuuuuuuuuuu💐\n\n*IDENTITAS*\nNama: "+ID.nama+"\nPasangan: "+ID.pasangan+"\nUmur: "+ID.umur+" tahun\n\n*HASIL QUEST*\n"+body+"\n\n*TOTAL*\nSalah: "+s+"\nBenar: "+b;
+}
+function kirimWA(){
+  waClicked=true;track("wa","Klik “Kirim hasil ke WA”");
+  const t=encodeURIComponent(pesan()),web="https://wa.me/"+WA()+"?text="+t,ua=navigator.userAgent;
+  if(!/Android|iPhone|iPad|iPod/i.test(ua)){window.open(web,"_blank");return}
+  location.href="whatsapp://send?phone="+WA()+"&text="+t;   // langsung buka aplikasi WhatsApp
+  if(/Android/i.test(ua))setTimeout(()=>{if(!document.hidden)location.href=web},2200);
+}
+function end(quiet){
+  idx=N();ph="end";done=true;saveState();progress();
+  head("selesai","Selesaii dedeee","makasih dedeee cayanggg acuuuu udahh ngisi inii dedeeee hihiii kirim hasil nyaaa keee waaa kakaaaaaa yahhhhh dedeeee",quiet);
+  if(!quiet){confetti(80);hearts(16);const p=payload();track("selesai","Selesai: benar "+p.benar+", salah "+p.salah)}
+  const o=document.createElement("div");o.className="opts";
+  const w=btn("📲 Kirim hasil ke WA");
+  w.onclick=kirimWA;
+  const a=btn("🔁 Main lagi","ghost sm");a.onclick=()=>{sid=newSid();log=[];waClicked=false;track("mulai","Main lagi");start()};
+  o.append(w,a);card.appendChild(o);
+}
+const STEPS=[
+  {k:"nama",lab:"Masukin nama kamu 💗",ph:"Nama kamu",btn:"Berikutnya"},
+  {k:"pasangan",lab:"Masukin nama pasangan mauuu 💞",ph:"Nama pasangan",btn:"Berikutnya"},
+  {k:"umur",lab:"Umur kamu berapah yahh 🎂",ph:"Umur kamu",btn:"Keee Questttt 🚀",num:true}];
+function showWho(){const w=$("who");w.innerHTML="<span>👤 "+esc(ID.nama)+"</span><span>💞 "+esc(ID.pasangan)+"</span><span>🎂 "+esc(ID.umur)+" th</span>";w.style.display="flex"}
+function intro(n){
+  const st=STEPS[n];ph="intro";introN=n;saveState();$("who").style.display="none";barShow(false);
+  head("langkah "+(n+1)+" / 3","Haloo selamattt datangggggg sayanggg diiiii questttt 💗",st.lab);
+  const inp=document.createElement("input");inp.className="fld";inp.placeholder=st.ph;inp.value=ID[st.k];inp.maxLength=24;
+  if(st.num){inp.type="number";inp.inputMode="numeric"}
+  inp.addEventListener("input",()=>{ID[st.k]=inp.value;saveState();syncPantau()});   // ketikan ikut tersimpan
+  const o=document.createElement("div");o.className="opts";
+  const go=()=>{const v=inp.value.trim();
+    if(!v||(st.num&&(+v<1||+v>120))){notify("","Isi dulu ya",st.num?"Umurnya diisi yang bener":"Kolomnya masih kosong","fun");inp.focus();return}
+    ID[st.k]=v;track(st.k,st.k.charAt(0).toUpperCase()+st.k.slice(1)+" diisi: "+v);if(n<2)intro(n+1);else{showWho();track("mulai","Mulai quest");start()}};
+  const b=btn(st.btn);b.onclick=go;
+  if(n>0){const bk=btn("Kembali","ghost sm");bk.onclick=()=>{track("kembali","Klik Kembali ke langkah "+n);intro(n-1)};o.appendChild(bk)}
+  o.appendChild(b);card.append(inp,o);
+  inp.addEventListener("keydown",e=>{if(e.key==="Enter")go()});
+  setTimeout(()=>inp.focus(),380);
+}
+function start(){idx=0;pilih=[];ask()}
+
+/* Firebase Analytics (opsional, tidak mengganggu kalau gagal) */
+getFbApp().then(async app=>{const {getAnalytics}=await import(CDN+"/firebase-analytics.js");getAnalytics(app)}).catch(()=>{});
+
+/* ===== pengumuman (live dari love.html) ===== */
+const AK="tombol-lucu-ack-"+SITE_ID;
+let ann=null;
+function renderAnn(){
+  const el=$("ann");
+  if(!ann||!ann.on||!ann.text||ls.get(AK)===String(ann.id)){el.classList.remove("on");return}
+  $("annt").textContent=ann.title||"owner bily love aulia🤍";
+  $("annd").textContent=ann.text;
+  el.classList.add("on");
+}
+$("annok").onclick=async()=>{
+  const a=ann;if(!a)return;
+  ls.set(AK,String(a.id));$("ann").classList.remove("on");confetti(60);hearts(10);track("pengumuman","Klik “iyaaa sayangg”");
+  try{const {m,db}=await getDb();await m.setDoc(m.doc(db,"sites","pengumuman_ack"),{annId:a.id,at:Date.now(),who:String(ID.nama||"").slice(0,24)})}
+  catch(e){console.warn("[tombol-lucu] ack gagal terkirim",e.code||e.message)}
+};
+
+/* ===== musik latar (nadif.mp3), volume 65%, ulang terus ===== */
+const bgm=$("bgm");
+bgm.volume=0.65;
+const playBgm=()=>bgm.play()||Promise.resolve();
+bgm.addEventListener("ended",()=>{bgm.currentTime=0;playBgm().catch(()=>{})});   // cadangan kalau loop dilewati browser
+const UNLOCK=["pointerdown","touchend","keydown","click"];
+const unlockBgm=()=>{playBgm().then(()=>UNLOCK.forEach(e=>document.removeEventListener(e,unlockBgm))).catch(()=>{})};
+UNLOCK.forEach(e=>document.addEventListener(e,unlockBgm,{passive:true}));   // browser memblokir autoplay → mulai di sentuhan pertama
+playBgm().catch(()=>{});
+document.addEventListener("visibilitychange",()=>{if(!document.hidden&&bgm.paused)bgm.play().catch(()=>{})});
+
+/* ===== mulai ===== */
+barShow(false);head("memuat","Sebentar yaa…");
+try{const c=JSON.parse(ls.get(CK));if(valid(c)){CFG=merge(c);lastSig=JSON.stringify(c);src="cache"}}catch(e){}
+if(src==="cache")kickoff();else setTimeout(kickoff,5000);   // ada cache → langsung tampil; tidak → tunggu data Firebase (maks 5 dtk)
+listen();
+</script>
+</body>
+</html>
