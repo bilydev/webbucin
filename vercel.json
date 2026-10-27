@@ -1,6 +1,0 @@
-{
-  "cleanUrls": true,
-  "headers": [
-    { "source": "/love", "headers": [{ "key": "X-Robots-Tag", "value": "noindex, nofollow" }] }
-  ]
-}
