@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Custom Quest 💗</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💗</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--pink:#ff77a9;--pink-d:#e7548f;--ink:#4a2b45;--soft:#8a6f85;--line:#ffd9ea}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Fredoka','Nunito',system-ui,-apple-system,'Segoe UI',Arial,sans-serif;color:var(--ink);padding:18px 14px 110px;
+  background:linear-gradient(160deg,#fff0f6,#ffe4ef 45%,#efe4ff) fixed;min-height:100vh}
+.wrap{max-width:560px;margin:0 auto}
+h1{font-size:26px;margin:6px 0 4px}
+.hint{font-size:13px;color:var(--soft);font-weight:600;margin:0 0 14px;line-height:1.45}
+.box{background:#fffffff0;border:3px solid #fff;border-radius:22px;padding:6px 16px 16px;margin:14px 0;box-shadow:0 14px 30px -18px rgba(214,88,145,.6)}
+.box h2{font-size:15px;margin:12px 0 0;color:#9b6dff}
+label{display:block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--pink-d);margin:10px 0 3px}
+input,select{width:100%;font-family:inherit;font-size:16px;font-weight:600;color:var(--ink);border:2px solid var(--line);border-radius:14px;padding:10px 12px;background:#fffafc;outline:none}
+input:focus,select:focus{border-color:var(--pink)}
+.row3{display:grid;grid-template-columns:70px 1fr;gap:8px}
+.btn{border:none;cursor:pointer;font-family:inherit;font-weight:700;font-size:15px;padding:12px 18px;border-radius:14px;color:#a8336a;background:linear-gradient(160deg,#ffe6f1,#ffc9e0);box-shadow:0 5px 0 -1px #f2a6c8}
+.btn:active{transform:translateY(3px)}
+.btn.ghost{background:#fff;border:2px solid var(--line);box-shadow:none}
+.bar{position:fixed;left:0;right:0;bottom:0;padding:10px 14px calc(10px + env(safe-area-inset-bottom,0px));background:#fffffff2;backdrop-filter:blur(10px);border-top:2px solid var(--line);z-index:5}
+.bar .in{max-width:560px;margin:0 auto;display:flex;gap:10px;align-items:center}
+.bar .btn{flex:1}
+#out,.bar .btn{padding:10px 14px;font-size:14px}
+a{color:var(--pink-d);font-weight:700}
+/* notifikasi & dialog bergaya aplikasi */
+.toast{position:fixed;left:50%;top:calc(10px + env(safe-area-inset-top,0px));width:min(440px,calc(100% - 20px));z-index:60;display:flex;gap:12px;align-items:center;
+  background:rgba(255,255,255,.96);backdrop-filter:blur(14px);border-radius:22px;padding:12px 16px;box-shadow:0 14px 34px -10px rgba(74,43,69,.5);
+  border-left:6px solid var(--pink);transform:translate(-50%,-170%);transition:transform .4s cubic-bezier(.2,.9,.3,1.3);pointer-events:none}
+.toast.on{transform:translate(-50%,0)}
+.toast.good{border-color:#2fc98d}.toast.bad{border-color:#ff5f6d}.toast.fun{border-color:#ffa52e}
+.toast .ic{width:38px;height:38px;border-radius:12px;display:grid;place-items:center;font-size:20px;font-weight:700;color:#fff;background:var(--pink);flex:none}
+.toast.good .ic{background:#2fc98d}.toast.bad .ic{background:#ff5f6d}.toast.fun .ic{background:#ffa52e}
+.toast .tx{min-width:0}
+.toast small{display:block;font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--soft)}
+.toast b{display:block;font-size:15px;line-height:1.25}
+.toast span{display:block;font-size:13px;color:var(--soft);font-weight:600;line-height:1.35;word-break:break-word}
+.dlg{position:fixed;inset:0;z-index:70;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(74,43,69,.4);backdrop-filter:blur(4px)}
+.dlg.on{display:flex}
+.dlg .card{width:min(360px,100%);background:#fff;border-radius:24px;padding:22px 20px 18px;text-align:center;box-shadow:0 24px 50px -16px rgba(74,43,69,.6);animation:dpop .3s cubic-bezier(.2,.9,.3,1.25)}
+@keyframes dpop{from{opacity:0;transform:scale(.9) translateY(10px)}to{opacity:1;transform:none}}
+.dlg .ic{width:54px;height:54px;border-radius:18px;margin:0 auto 10px;display:grid;place-items:center;font-size:26px;background:#fff0f6}
+.dlg small{display:block;font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--pink-d)}
+.dlg h3{margin:4px 0 6px;font-size:19px}
+.dlg p{margin:0 0 16px;font-size:14px;color:var(--soft);font-weight:600;line-height:1.45}
+.dlg .acts{display:flex;gap:10px}.dlg .acts .btn{flex:1}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Custom Quest 💗</h1>
+  <p class="hint">Ubah soal, jawaban, tombol yang benar, nomor WhatsApp, dan notifikasi. Setelah disimpan, berubah di semua HP dan web. <a href="/">Buka kuisnya</a></p>
+  <p class="hint" id="top" style="color:#d6335a"></p>
+  <div id="app" class="hint">Memuat…</div>
+</div>
+<div class="bar" id="bar" style="display:none"><div class="in"><button class="btn" id="save">Simpan</button><button class="btn ghost" id="reset">Default</button><button class="btn ghost" id="out">Keluar</button></div></div>
+
+<div class="toast" id="toast"><div class="ic" id="tic"></div><div class="tx"><small>Quest for Partner</small><b id="tt"></b><span id="tm"></span></div></div>
+<div class="dlg" id="dlg"><div class="card"><div class="ic">🗑️</div><small>Quest for Partner</small><h3 id="dt"></h3><p id="dm"></p><div class="acts"><button class="btn ghost" id="dn">Batal</button><button class="btn" id="dy">Ya, hapus</button></div></div></div>
+
+<script>
+const DEFAULTS={
+  q:[
+    {t:"Kamu kangen aku nggak hari ini? 🥺", a:["Biasa aja","Kangen banget 🥺","Siapa ya?"], c:1, ok:"Tuh kan, ketahuan 😌💗", no:"Hah?! Serius nih?! 😳"},
+    {t:"Kalau ada yang deketin kamu, kamu bakal…", a:["Cuekin, cuma kamu 🫶","Siapa tau jodoh 🙃","Kenalan dulu"], c:0, ok:"Pinter! Itu baru pacarku 💗", no:"JODOH APA?! 😤"},
+    {t:"Kalau aku tiba-tiba ngambek tanpa sebab…", a:["Tinggal tidur","Cuekin aja","Peluk sampai luluh 🫂"], c:2, ok:"Aaaa meleleh 🥺💗", no:"Tega banget sih 😭"},
+    {t:"Aku paling suka diperhatiin lewat apa?", a:["Transfer 💸","Chat duluan 🫶","Kasih kode"], c:1, ok:"Bener! Kamu hafal aku 🥹", no:"Ternyata sayangnya ada harganya 🤑"},
+    {t:"Siapa yang paling sering telat bales chat?", a:["Kamu sih 🙄","Sinyalnya","Aku, maaf ya 😅"], c:2, ok:"Diakuin juga akhirnya wkwk 😆", no:"Aku lagi sibuk tau 😤"},
+    {t:"Kalau kita berantem, siapa yang minta maaf duluan?", a:["Yang salah 🫡","Kamu aja","Siapa cepat"], c:0, ok:"Adil! Tapi biasanya aku yang ngalah 😌", no:"Enak aja! 😤"},
+    {t:"Kalau aku lagi bawel banget, kamu bakal…", a:["Matiin telpon 📵","Sabar dengerin 🥰","Pura-pura tidur"], c:1, ok:"Aaaa aku beruntung banget 🥺", no:"Berani banget kamu 😤"},
+    {t:"Deal nggak: kalau salah satu sedih, yang lain WAJIB angkat telpon?", a:["Ribet ah 🙄","Nanti aja","Deal 🤝"], c:2, ok:"Deal ✨ Nggak bisa dibatalin ya 😌", no:"Ckckck, hatimu kok gitu 😔"},
+    {t:"Terakhir: kamu mau nemenin aku terus? 🥺", a:["Mau banget 💗","Nggak 😤","Mikir dulu"], c:0, ok:"Aaaa aku senang banget 🥹💗", no:"Coba lagi, jawabannya jelas kok 🥺"}
+  ],
+  wa:"6287892412411",
+  nb:{e:"",t:"Jawaban benar",m:"Poin cinta bertambah"},
+  ns:{e:"",t:"Jawaban salah",m:"Coba lebih teliti ya"}
+};
+const SITE_ID="utama";   // id data di Firebase. Samakan dengan SITE_ID di index.html
+const CDN="https://www.gstatic.com/firebasejs/13.1.0";
+const FB={apiKey:"AIzaSyAnZdntSgGrfe-zw9zJkyGlWD81x15PHXU",authDomain:"loveweb-786ec.firebaseapp.com",projectId:"loveweb-786ec",storageBucket:"loveweb-786ec.firebasestorage.app",messagingSenderId:"562412540068",appId:"1:562412540068:web:00a19e13c2802811f8d631"};
+const AUTO={email:"bily@gmail.com",pw:"bily9110"};   // terisi otomatis di form login. Kosongkan ("") kalau tidak mau.
+const $=id=>document.getElementById(id), clone=o=>JSON.parse(JSON.stringify(o));
+const valid=d=>d&&Array.isArray(d.q)&&d.q.length===9&&Array.isArray(d.q[0].a);
+let CFG=clone(DEFAULTS), fb=null;
+let toastT;
+function toast(tone,title,msg,ms){
+  const n=$("toast");$("tic").textContent=tone==="good"?"✓":tone==="bad"?"!":"i";$("tt").textContent=title;$("tm").textContent=msg||"";
+  n.className="toast "+(tone||"");void n.offsetWidth;n.classList.add("on");
+  clearTimeout(toastT);toastT=setTimeout(()=>n.classList.remove("on"),ms||2800);
+}
+function ask(title,msg){
+  return new Promise(res=>{
+    const d=$("dlg");$("dt").textContent=title;$("dm").textContent=msg;d.classList.add("on");
+    const end=v=>{d.classList.remove("on");$("dy").onclick=$("dn").onclick=d.onclick=null;res(v)};
+    $("dy").onclick=()=>end(true);$("dn").onclick=()=>end(false);
+    d.onclick=e=>{if(e.target===d)end(false)};
+  });
+}
+function status(t,c){$("top").textContent=c==="err"?t:""}   // hanya error yang ditampilkan (di atas)
+async function conn(){
+  if(fb)return fb;
+  const [{initializeApp},m,a]=await Promise.all([import(CDN+"/firebase-app.js"),import(CDN+"/firebase-firestore.js"),import(CDN+"/firebase-auth.js")]);
+  const app=initializeApp(FB);
+  fb={m,a,auth:a.getAuth(app),ref:m.doc(m.initializeFirestore(app,{experimentalForceLongPolling:true}),"sites",SITE_ID)};return fb;
+}
+function field(box,lab,obj,key,type){
+  const l=document.createElement("label");l.textContent=lab;
+  const i=document.createElement("input");if(type)i.type=type;i.value=obj[key]==null?"":obj[key];i.oninput=()=>obj[key]=i.value;
+  box.append(l,i);return i;
+}
+function notif(box,title,o){
+  const h=document.createElement("h2");h.textContent=title;box.appendChild(h);
+  const g=document.createElement("div");g.className="row3";
+  const a=document.createElement("div"),b=document.createElement("div");g.append(a,b);box.appendChild(g);
+  const l1=document.createElement("label");l1.textContent="Ikon";const i1=document.createElement("input");i1.value=o.e||"";i1.placeholder="kosong";i1.oninput=()=>o.e=i1.value;a.append(l1,i1);
+  const l2=document.createElement("label");l2.textContent="Judul";const i2=document.createElement("input");i2.value=o.t||"";i2.oninput=()=>o.t=i2.value;b.append(l2,i2);
+  field(box,"Pesan",o,"m");
+}
+function build(){
+  const A=$("app");A.className="";A.innerHTML="";
+  const b1=document.createElement("div");b1.className="box";
+  const h=document.createElement("h2");h.textContent="Kirim hasil ke WhatsApp";b1.appendChild(h);
+  const w=field(b1,"Nomor tujuan (contoh 6281234567890)",CFG,"wa","tel");w.inputMode="tel";
+  A.appendChild(b1);
+  const b2=document.createElement("div");b2.className="box";
+  notif(b2,"Notifikasi jawaban benar",CFG.nb);notif(b2,"Notifikasi jawaban salah",CFG.ns);
+  const t=document.createElement("p");t.className="hint";t.style.margin="12px 0 0";t.textContent="Ikon dikosongkan = notifikasi polos. Mau emoji? Ketik lewat keyboard HP (tombol emoji).";b2.appendChild(t);
+  A.appendChild(b2);
+  CFG.q.forEach((q,i)=>{
+    const d=document.createElement("div");d.className="box";
+    const hh=document.createElement("h2");hh.textContent="Pertanyaan "+(i+1);d.appendChild(hh);
+    field(d,"Pertanyaan",q,"t");
+    ["Tombol kiri","Tombol tengah","Tombol kanan"].forEach((n,k)=>field(d,n,q.a,k));
+    const l=document.createElement("label");l.textContent="Jawaban benar ada di tombol";
+    const sel=document.createElement("select");
+    ["Kiri","Tengah","Kanan"].forEach((n,k)=>{const o=document.createElement("option");o.value=k;o.textContent=n;sel.appendChild(o)});
+    sel.value=q.c;sel.onchange=()=>q.c=+sel.value;d.append(l,sel);
+    field(d,"Balasan kalau benar",q,"ok");field(d,"Balasan kalau salah",q,"no");
+    A.appendChild(d);
+  });
+}
+function showLogin(){
+  $("bar").style.display="none";
+  const A=$("app");A.className="";A.innerHTML="";
+  const b=document.createElement("div");b.className="box";
+  const h=document.createElement("h2");h.textContent="Masuk dulu 🔐";b.appendChild(h);
+  const cr={email:AUTO.email,pw:AUTO.pw};
+  const e=field(b,"Email",cr,"email","email");e.autocomplete="username";
+  const p=field(b,"Password",cr,"pw","password");p.autocomplete="current-password";
+  const go=document.createElement("button");go.className="btn";go.style.marginTop="14px";go.textContent="Masuk";
+  const msg=document.createElement("p");msg.className="hint";msg.style.margin="10px 0 0";
+  const doLogin=async()=>{
+    msg.style.color="";msg.textContent="Masuk…";
+    try{const f=await conn();await f.a.signInWithEmailAndPassword(f.auth,cr.email.trim(),cr.pw)}
+    catch(er){msg.style.color="#d6335a";msg.textContent="Gagal masuk ("+(er.code||er.message)+")"}
+  };
+  go.onclick=doLogin;p.addEventListener("keydown",ev=>{if(ev.key==="Enter")doLogin()});
+  b.append(go,msg);A.appendChild(b);
+}
+async function load(){
+  $("bar").style.display="";
+  try{
+    const f=await conn();const snap=await f.m.getDoc(f.ref);
+    if(snap.exists()&&valid(snap.data())){const d=snap.data();CFG={...clone(DEFAULTS),...d,nb:{...DEFAULTS.nb,...d.nb},ns:{...DEFAULTS.ns,...d.ns}};status("Data terbaru sudah dimuat","ok")}
+    else status("Belum ada data tersimpan, pakai default")
+  }catch(e){status("Gagal konek Firebase ("+(e.code||e.message)+"). Cek Firestore & rules.","err")}
+  build();
+}
+async function init(){
+  try{const f=await conn();f.a.onAuthStateChanged(f.auth,u=>{u?load():showLogin()})}
+  catch(e){$("app").textContent="Gagal konek Firebase ("+(e.code||e.message)+")"}
+}
+$("save").onclick=async()=>{
+  const sv=$("save"),n=String(CFG.wa||"").replace(/\D/g,"");
+  if(n.length<8){toast("fun","Nomor belum benar","Cek lagi nomor WhatsApp tujuan");return}
+  sv.disabled=true;sv.textContent="Menyimpan…";
+  try{
+    const f=await conn();
+    if(!f.auth.currentUser)throw{code:"belum-login"};
+    const stamp=Date.now();
+    await Promise.race([f.m.setDoc(f.ref,{...clone(CFG),updated:stamp}),new Promise((_,no)=>setTimeout(()=>no({code:"timeout (koneksi lambat/diblokir)"}),15000))]);
+    const chk=await f.m.getDocFromServer(f.ref);          // baca ulang dari server untuk memastikan benar-benar tersimpan
+    if(!chk.exists()||chk.data().updated!==stamp)throw{code:"data-di-server-tidak-cocok"};
+    sv.textContent="Tersimpan ✓";toast("good","Berhasil disimpan","Perubahan sudah aktif di semua HP dan web");
+  }catch(e){sv.textContent="Gagal ✗";toast("bad","Gagal menyimpan",String(e.code||e.message),4200)}
+  setTimeout(()=>{sv.textContent="Simpan";sv.disabled=false},1800);
+};
+$("reset").onclick=async()=>{if(!await ask("Kembalikan ke default?","Semua isian akan dihapus dan diganti bawaan. Belum tersimpan sampai kamu tekan Simpan."))return;CFG=clone(DEFAULTS);build();toast("fun","Default dimuat","Tekan Simpan untuk menerapkan")};
+$("out").onclick=async()=>{const f=await conn();await f.a.signOut(f.auth)};
+init();
+</script>
+</body>
+</html>
